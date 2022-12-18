@@ -23,6 +23,15 @@ public class Cliente implements Serializable{
     @Column(name="clave_cliente")
     private String clave_cliente;
 
+    public Cliente(String id_cliente, String nombre_cliente, String clave_cliente) {
+        this.id_cliente = id_cliente;
+        this.nombre_cliente = nombre_cliente;
+        this.clave_cliente = clave_cliente;
+    }
+
+    public Cliente() {
+    }
+
     @Override
     public String toString() {
         return "Cliente [id_cliente=" + id_cliente + ", nombre_cliente=" + nombre_cliente + ", clave_cliente="

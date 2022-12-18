@@ -1,11 +1,10 @@
 package com.unab.banca.Dao;
 
-import com.unab.banca.Models.Cliente;
+import com.unab.banca.Models.Cuenta;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClienteDao extends CrudRepository<Cliente, String>  {
-    
-
+public interface ICuentaDao extends CrudRepository<Cuenta, String> {
 }

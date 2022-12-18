@@ -1,6 +1,6 @@
 package com.unab.banca.Controller;
 import com.unab.banca.Models.Cuenta;
-import com.unab.banca.Dao.CuentaDao;
+import com.unab.banca.Dao.ICuentaDao;
 import com.unab.banca.Service.CuentaService;
 
 import java.util.List;
@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CuentaController {
     
     @Autowired
-    private CuentaDao cuentaDao;
+    private ICuentaDao ICuentaDao;
 
     @Autowired
     private CuentaService cuentaService;
@@ -46,8 +46,8 @@ public class CuentaController {
     }
     
     @PutMapping(value="/") 
-    public ResponseEntity<Cuenta> editar(@RequestBody Cuenta cuenta){ 
-        Cuenta obj = cuentaService.findById(cuenta.getId_cuenta()); 
+    public ResponseEntity<Cuenta> editar(@RequestBody Cuenta cuenta){
+        Cuenta obj = cuentaService.findById(cuenta.getId_cuenta());
         if(obj!=null) {
             
             obj.setSaldo_cuenta(cuenta.getSaldo_cuenta());
@@ -66,6 +66,7 @@ public class CuentaController {
     
     @GetMapping("/list/{id}") 
     public Cuenta consultaPorId(@PathVariable String id){ 
-        return cuentaService.findById(id); 
+
+        return cuentaService.findById(id);
     }
 }

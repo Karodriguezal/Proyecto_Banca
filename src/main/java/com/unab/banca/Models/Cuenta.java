@@ -25,7 +25,17 @@ public class Cuenta implements Serializable {
     @ManyToOne
     @JoinColumn(name="id_cliente")
     private Cliente cliente;
-    
+
+    public Cuenta(String id_cuenta, Date fecha_apertura, Double saldo_cuenta, Cliente cliente) {
+        this.id_cuenta = id_cuenta;
+        this.fecha_apertura = fecha_apertura;
+        this.saldo_cuenta = saldo_cuenta;
+        this.cliente = cliente;
+    }
+
+    public Cuenta() {
+    }
+
     @Override
     public String toString() {
         return "Cuenta [id_cuenta=" + id_cuenta + ", fecha_apertura=" + fecha_apertura + ", saldo_cuenta="
